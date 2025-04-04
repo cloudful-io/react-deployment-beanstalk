@@ -1,0 +1,50 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "containerDefinitions": [
+      {
+        "name": "backend",
+        "image": "backend-image", 
+        "essential": true,
+        "memory": 512,
+        "cpu": 256,
+        "portMappings": [
+          {
+            "hostPort": 8080,
+            "containerPort": 8080
+          }
+        ],
+        "environment": [
+          {
+            "name": "NODE_ENV",
+            "value": "production"
+          }
+        ]
+      },
+      {
+        "name": "frontend",
+        "image": "frontend-image", 
+        "essential": true,
+        "memory": 512,
+        "cpu": 256,
+        "portMappings": [
+          {
+            "hostPort": 80,
+            "containerPort": 80
+          }
+        ],
+        "environment": [
+          {
+            "name": "REACT_APP_API_URL",
+            "value": "http://backend:8080"
+          }
+        ],
+        "dependsOn": [
+          {
+            "containerName": "backend",
+            "condition": "START"
+          }
+        ]
+      }
+    ]
+  }
+  

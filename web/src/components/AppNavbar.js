@@ -18,7 +18,7 @@ import HomeIcon from '@mui/icons-material/Home';
 const drawerWidth = 240;
 
 const navItems = [
-    ['Page 1', '/#/page1'],
+    ['To Do App', '/#/page1'],
     ['Page 2', '/#/page2'],
     ['Page 3', '/#/page3']
   ];
